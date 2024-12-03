@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
       - name: myweb-con
-        image: oolralra/fast:1
+        image: oolralra/fast:4
