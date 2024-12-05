@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: back
+  template:
+    metadata:
+      labels:
+        app: back
+    spec:
+      containers:
+      - name: back-con
+        image: oolralra/back:2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-back
+spec:
+  selector:
+    app: back
+  ports:
+  - port: 8000
+    targetPort: 8000
+  type: LoadBalancer
